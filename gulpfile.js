@@ -7,32 +7,43 @@ const babel = require('gulp-babel');
  
 sass.compiler = require('node-sass');
 
+const htmlPath = 'src/templates/*.pug';
+const cssPath = 'src/stylesheets/**/*.scss';
+const jsPath = 'src/javascripts/**/*.js';
+
 function html() {
-  return src('src/**/*.pug')
+  return src(htmlPath)
     .pipe(pug())
-    .pipe(dest('dist'))
+    .pipe(dest('dist'));
 }
 
 function css() {
-  return src('src/stylesheets/**/*.scss')
+  return src(cssPath)
     .pipe(sass().on('error', sass.logError))
     .pipe(minifyCss())
-    .pipe(dest('dist/stylesheets'))
+    .pipe(dest('dist/stylesheets'));
 }
 
 function js() { 
-  return src('src/javascripts/**/*.js')
+  return src(jsPath)
     .pipe(babel({
       presets: ['@babel/env']
     }))
     .pipe(uglify())
-    .pipe(dest('dist/javascripts'))
+    .pipe(dest('dist/javascripts'));
 }
 
 function watchFiles() {
-  watch('src/stylesheets/**/*.scss', css);
-  watch('src/javascripts/**/*.js', js);
-  watch('src/**/*.pug', html);
+  watch(htmlPath, html);
+  watch(cssPath, css);
+  watch(jsPath, js);
+}
+
+async function build() {
+  html();
+  css();
+  js();
 }
 
 exports.watch = watchFiles;
+exports.build = build;

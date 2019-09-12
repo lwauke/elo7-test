@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=development gulp watch"
+    "dev": "NODE_ENV=development gulp watch",
+    "build": "NODE_ENV=production gulp build"
   },
   "repository": {
     "type": "git",
