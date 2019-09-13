@@ -1,4 +1,11 @@
-const { src, dest, watch, parallel } = require('gulp');
+const {
+  src,
+  dest,
+  watch,
+  parallel,
+  series,
+  task
+ } = require('gulp');
 
 const pug = require('gulp-pug');
 const sass = require('gulp-sass');
@@ -6,9 +13,12 @@ const minifyCss = require('gulp-csso');
 const uglify = require('gulp-uglify');
 const babel = require('gulp-babel');
 
-const htmlPath = 'src/templates/*.pug';
+const htmlPath = 'src/*.pug';
 const cssPath = 'src/stylesheets/**/*.scss';
 const jsPath = 'src/javascripts/**/*.js';
+
+const path = require('path');
+const fse = require('fs-extra');
 
 sass.compiler = require('node-sass');
 
@@ -17,39 +27,50 @@ const onProd = (stream, ...tasks) =>
     ? tasks.reduce((s, task) => s.pipe(task()), stream)
     : stream;
 
-function html() {
-  return src(htmlPath)
+async function html() {
+  src(htmlPath)
     .pipe(pug())
     .pipe(dest('dist'));
 }
 
-function css() {
-  let stream = src(cssPath)
+function cssTranspile() {
+  return src(cssPath)
     .pipe(sass().on('error', sass.logError));
-    
-  return onProd(stream, minifyCss)
+}
+
+async function css() {  
+  onProd(cssTranspile(), minifyCss)
     .pipe(dest('dist/stylesheets'));  
 }
 
-function js() {
-  let stream = src(jsPath)
+function jsTranspile() {
+  return src(jsPath)
     .pipe(babel({
-      presets: ['@babel/env']
+      presets: ['@babel/preset-env'],
+      plugins: ['@babel/transform-runtime']
     }));
+}
 
-  return onProd(stream, uglify)
+async function js() {  
+  onProd(jsTranspile(), uglify)
     .pipe(dest('dist/javascripts'));
 }
 
-function watchFiles() {
+async function clean() {
+  try {
+    await fse.emptyDir(path.join(__dirname, 'dist'));
+  } catch (err) {
+    console.error('Build error: ', err);
+  }  
+}
+
+task('watch', () => {
   watch(htmlPath, html);
   watch(cssPath, css);
   watch(jsPath, js);
-}
+});
 
-async function build() {
-  parallel(html, css, js);
-}
-
-exports.watch = watchFiles;
-exports.build = build;
+task('build', series(
+  clean,
+  parallel(html, css, js)
+));
