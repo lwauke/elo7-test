@@ -12,10 +12,12 @@ const sass = require('gulp-sass');
 const minifyCss = require('gulp-csso');
 const uglify = require('gulp-uglify');
 const babel = require('gulp-babel');
+const imagemin = require('gulp-imagemin');
 
 const htmlPath = 'src/*.pug';
 const cssPath = 'src/stylesheets/**/*.scss';
 const jsPath = 'src/javascripts/**/*.js';
+const imgPath = 'src/images/*';
 
 const path = require('path');
 const fse = require('fs-extra');
@@ -56,6 +58,12 @@ async function js() {
     .pipe(dest('dist/javascripts'));
 }
 
+async function img() {
+  src(imgPath)
+    .pipe(imagemin())
+    .pipe(dest('dist/images'));
+}
+
 async function clean() {
   try {
     await fse.emptyDir(path.join(__dirname, 'dist'));
@@ -68,9 +76,10 @@ task('watch', () => {
   watch(htmlPath, html);
   watch(cssPath, css);
   watch(jsPath, js);
+  watch(imgPath, img)
 });
 
 task('build', series(
   clean,
-  parallel(html, css, js)
+  parallel(html, css, js, img)
 ));
