@@ -1,15 +1,21 @@
-const { src, dest, watch } = require('gulp');
+const { src, dest, watch, parallel } = require('gulp');
+
 const pug = require('gulp-pug');
 const sass = require('gulp-sass');
 const minifyCss = require('gulp-csso');
 const uglify = require('gulp-uglify');
 const babel = require('gulp-babel');
- 
-sass.compiler = require('node-sass');
 
 const htmlPath = 'src/templates/*.pug';
 const cssPath = 'src/stylesheets/**/*.scss';
 const jsPath = 'src/javascripts/**/*.js';
+
+sass.compiler = require('node-sass');
+
+const onProd = (stream, ...tasks) =>
+  process.env.NODE_ENV === 'production'
+    ? tasks.reduce((s, task) => s.pipe(task()), stream)
+    : stream;
 
 function html() {
   return src(htmlPath)
@@ -18,18 +24,20 @@ function html() {
 }
 
 function css() {
-  return src(cssPath)
-    .pipe(sass().on('error', sass.logError))
-    .pipe(minifyCss())
-    .pipe(dest('dist/stylesheets'));
+  let stream = src(cssPath)
+    .pipe(sass().on('error', sass.logError));
+    
+  return onProd(stream, minifyCss)
+    .pipe(dest('dist/stylesheets'));  
 }
 
-function js() { 
-  return src(jsPath)
+function js() {
+  let stream = src(jsPath)
     .pipe(babel({
       presets: ['@babel/env']
-    }))
-    .pipe(uglify())
+    }));
+
+  return onProd(stream, uglify)
     .pipe(dest('dist/javascripts'));
 }
 
@@ -40,9 +48,7 @@ function watchFiles() {
 }
 
 async function build() {
-  html();
-  css();
-  js();
+  parallel(html, css, js);
 }
 
 exports.watch = watchFiles;
