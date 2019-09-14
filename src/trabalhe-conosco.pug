@@ -12,26 +12,34 @@ html(lang="pt-br")
       .intro-bg
         h2.title Trabalhe no Elo7
       .intro-content
-        p.intro-text Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        p.intro-text
+          | Lorem ipsum dolor sit amet consectetur adipisicing elit.
           | Atque est aspernatur vero. Aliquam repudiandae nobis quia!
           | Alias, tempore illo ex rerum dolorem dignissimos maiores impedit,
           | animi ipsam voluptate adipisci nesciunt?
         a.highlight-link(href="#") Vagas em aberto
     section.about
-      section.ceo-words
-        img(src="images/placeholder-video.png", alt="Vídeo do CEO")
-        div
+      section.ceo-section
+        img.ceo-video(src="images/placeholder-video.png", alt="Vídeo do CEO")
+        .ceo-words
+          h3.subtitle Palavras do CEO
+          strong.highlight.ceo-highlight Carlos Curioni
+          p.ceo-content
+            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            | Sequi provident repellat veritatis aliquam suscipit doloribus delectus totam officia,
+            | iusto voluptas perspiciatis amet ut dolor!
+            | Magni quo rerum accusamus. Voluptas, fugiat.
       section.team
-        h3.subtitle.team-subtitle Conheça o nosso time
+        h3.subtitle.team-subtitle
+          | Conheça o nosso time
           br
           | fora de série
         .team-members
-          a(href="#").member
+          a.member(href="#")
             img.member-img(src="images/camila.png", alt="Camila")
-          a(href="#").member
+          a.member(href="#")
             img.member-img(src="images/guto.png", alt="Guto")
-          a(href="#").member
+          a.member(href="#")
             img.member-img(src="images/david.png", alt="David")
-          a(href="#").member
-            img.member-img(src="images/beatriz.png", alt="Beatriz")
-
+          a.member(href="#")
+            img.member-img(src="images/beatriz.png", alt="Beatriz")      
