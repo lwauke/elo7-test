@@ -1,0 +1,43 @@
+@import 'imports/style.scss';
+
+$max-width: 1270px;
+
+h2, p {
+  margin: 0;
+}
+
+.intro {
+  text-align: center;
+}
+
+.intro-bg {
+  height: 70vh;
+  background: no-repeat center/cover url('../images/foto-header.png');
+  position: relative;
+}
+
+.title {
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 50px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  @media (max-width: 520px) {
+    top: 55%;
+    font-size: 40px;
+  }
+}
+
+.intro-content {
+  max-width: $max-width;
+  margin: auto;
+  @media(max-width: $max-width) {
+    padding: 33px 50px 55px;
+  }  
+}
+
+.intro-text {
+  margin-bottom: 30px;
+}

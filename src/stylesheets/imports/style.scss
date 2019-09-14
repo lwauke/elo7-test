@@ -1,3 +1,26 @@
-html {
-  margin: 0
+body {
+  margin: 0;
+  color: #7d7873;
+}
+
+.highlight-link {
+  padding-top: 23px;
+  border-top: 2px solid #cbcbcb;
+  width: 200px;
+  text-align: center;
+  color: #359c9c;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.highlight-link::after {
+  content: " >>";
+  font-size: 0.6em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
