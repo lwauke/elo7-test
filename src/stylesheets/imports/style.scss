@@ -3,24 +3,30 @@ body {
   color: #7d7873;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.highlight-link, .subtitle {
+  text-transform: uppercase;
+}
+
 .highlight-link {
   padding-top: 23px;
   border-top: 2px solid #cbcbcb;
   width: 200px;
   text-align: center;
   color: #359c9c;
-  text-transform: uppercase;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  &::after {
+    content: " >>";
+    font-size: 0.6em;
+  }
 }
 
-.highlight-link::after {
-  content: " >>";
-  font-size: 0.6em;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
+.subtitle {
+  color: #7d7873;
 }
