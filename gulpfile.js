@@ -22,6 +22,8 @@ const imgPath = 'src/images/*';
 const path = require('path');
 const fse = require('fs-extra');
 
+// const browserSync = require('browser-sync').create();
+
 sass.compiler = require('node-sass');
 
 const onProd = (stream, ...tasks) =>
@@ -73,9 +75,15 @@ async function clean() {
 }
 
 task('watch', () => {
-  watch(htmlPath, html);
-  watch(cssPath, css);
-  watch(jsPath, js);
+  browserSync.init({
+    server: {
+      baseDir: './dist'
+    }
+  })
+
+  watch(htmlPath, html).on('change', browserSync.reload);
+  watch(cssPath, css).on('change', browserSync.reload);
+  watch(jsPath, js).on('change', browserSync.reload);
   watch(imgPath, img)
 });
 
