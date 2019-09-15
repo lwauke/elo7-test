@@ -15,7 +15,8 @@ h2, h3, p, h4, figure{
 .intro-content,
 .ceo-section,
 .team-members,
-.advantages-container {
+.advantages-container,
+.ilustrative-pic {
   max-width: $max-width;
   width: 90%;
   margin: 0 auto;
@@ -24,6 +25,9 @@ h2, h3, p, h4, figure{
 .intro-bg {
   height: 55vh;
   background: no-repeat center/cover url('../images/foto-header.png');
+  @media (max-width: 800px) {
+    background-image: url('../images/foto-header-sm.png');
+  }
   position: relative;
 }
 
@@ -160,4 +164,13 @@ h2, h3, p, h4, figure{
   .advantages-link {
     grid-column: 2 / 3;
   }
+}
+
+.ilustrative-pic,
+.ilustrative-pic-img {
+  display: block;  
+}
+
+.ilustrative-pic-img {
+  width: 100%;
 }

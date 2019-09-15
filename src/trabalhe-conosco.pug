@@ -6,6 +6,7 @@ html(lang="pt-br")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Trabalhe conosco
     link(rel="stylesheet", href="stylesheets/trabalhe-conosco.css")
+    script(src="javascripts/bundle.js" async defer)
   body
   main
     section.intro
@@ -72,3 +73,8 @@ html(lang="pt-br")
           | Lorem ipsum dolor sit amet consectetur adipisicing elit.
           | Sequi provident repellat veritatis aliquam suscipit doloribus delectus totam officia,
       a.advantages-link.highlight-link(href="#") Saiba mais
+    picture.ilustrative-pic
+      source(media="(max-width: 800px)" srcset="images/foto-bottom-sm.png")
+      img.ilustrative-pic-img(src="images/foto-bottom.png", alt="Feira de artesanato em um salão com faixa da Elo7")
+    section.jobs
+      h3.subtitle Vagas em aberto
