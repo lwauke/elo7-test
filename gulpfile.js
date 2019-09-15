@@ -13,6 +13,7 @@ const minifyCss = require('gulp-csso');
 const uglify = require('gulp-uglify');
 const babel = require('gulp-babel');
 const imagemin = require('gulp-imagemin');
+const webpack = require('webpack-stream');
 
 const htmlPath = 'src/*.pug';
 const cssPath = 'src/stylesheets/**/*.scss';
@@ -22,7 +23,7 @@ const imgPath = 'src/images/*';
 const path = require('path');
 const fse = require('fs-extra');
 
-// const browserSync = require('browser-sync').create();
+const browserSync = require('browser-sync').create();
 
 sass.compiler = require('node-sass');
 
@@ -50,9 +51,15 @@ async function css() {
 function jsTranspile() {
   return src(jsPath)
     .pipe(babel({
-      presets: ['@babel/preset-env'],
+      presets: ['@babel/env'],
       plugins: ['@babel/transform-runtime']
-    }));
+    }).on('error', console.error))
+    .pipe(webpack({
+      output: {
+        filename: 'bundle.js'
+      },
+      mode: process.env.NODE_ENV
+    }).on('error', console.error));
 }
 
 async function js() {  
