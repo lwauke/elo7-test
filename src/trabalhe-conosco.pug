@@ -5,78 +5,79 @@ html(lang="pt-br")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Trabalhe conosco
-    link(rel="stylesheet", href="stylesheets/trabalhe-conosco.css")
+    link(rel="stylesheet", href="stylesheets/trabalhe-conosco.css")    
     script(src="javascripts/bundle.js" async defer)
   body
-  main
-    section.intro
-      .intro-bg
-        h2.title Trabalhe no Elo7
-      .intro-content
-        p.intro-text
-          | Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          | Atque est aspernatur vero. Aliquam repudiandae nobis quia!
-          | Alias, tempore illo ex rerum dolorem dignissimos maiores impedit,
-          | animi ipsam voluptate adipisci nesciunt?
-        a.highlight-link(href="#") Vagas em aberto
-    section.about
-      section.ceo-section
-        img.ceo-video(src="images/placeholder-video.png", alt="Vídeo do CEO")
-        .ceo-words
-          h3.subtitle Palavras do CEO
-          strong.highlight.ceo-highlight Carlos Curioni
-          p.ceo-content
+    main
+      section.intro
+        .intro-bg
+          h2.title Trabalhe no Elo7
+        .intro-content
+          p.intro-text
+            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            | Atque est aspernatur vero. Aliquam repudiandae nobis quia!
+            | Alias, tempore illo ex rerum dolorem dignissimos maiores impedit,
+            | animi ipsam voluptate adipisci nesciunt?
+          a.highlight-link(href="#") Vagas em aberto
+      section.about
+        section.ceo-section
+          img.ceo-video(src="images/placeholder-video.png", alt="Vídeo do CEO")
+          .ceo-words
+            h3.subtitle Palavras do CEO
+            strong.highlight.ceo-highlight Carlos Curioni
+            p.ceo-content
+              | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              | Sequi provident repellat veritatis aliquam suscipit doloribus delectus totam officia,
+              | iusto voluptas perspiciatis amet ut dolor!
+              | Magni quo rerum accusamus. Voluptas, fugiat.
+        section.team
+          h3.subtitle.team-subtitle
+            | Conheça o nosso time
+            br
+            | fora de série
+          .team-members
+            a.member(href="#")
+              img.member-img(src="images/camila.png", alt="Camila")
+            a.member(href="#")
+              img.member-img(src="images/guto.png", alt="Guto")
+            a.member(href="#")
+              img.member-img(src="images/david.png", alt="David")
+            a.member(href="#")
+              img.member-img(src="images/beatriz.png", alt="Beatriz")
+      section.advantages-container
+        .advantage
+          figure
+            img.advantage-img(src="images/qualidade.png", alt="Ícone de smile")
+            figcaption.advantage-subtitle
+              h4.subtitle Qualidade de vida
+          p.advantage-description
+            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            | Sequi provident repellat veritatis aliquam suscipit doloribus delectus totam officia,
+            | iusto voluptas perspiciatis amet ut dolor!
+        .advantage
+          figure
+            img.advantage-img(src="images/descontracao.png", alt="Ícone de mão fazendo símbolo de Rock'n'Roll")
+            figcaption.advantage-subtitle
+              h4.subtitle Ambiente descontraído
+          p.advantage-description
             | Lorem ipsum dolor sit amet consectetur adipisicing elit.
             | Sequi provident repellat veritatis aliquam suscipit doloribus delectus totam officia,
             | iusto voluptas perspiciatis amet ut dolor!
             | Magni quo rerum accusamus. Voluptas, fugiat.
-      section.team
-        h3.subtitle.team-subtitle
-          | Conheça o nosso time
-          br
-          | fora de série
-        .team-members
-          a.member(href="#")
-            img.member-img(src="images/camila.png", alt="Camila")
-          a.member(href="#")
-            img.member-img(src="images/guto.png", alt="Guto")
-          a.member(href="#")
-            img.member-img(src="images/david.png", alt="David")
-          a.member(href="#")
-            img.member-img(src="images/beatriz.png", alt="Beatriz")
-    section.advantages-container
-      .advantage
-        figure
-          img.advantage-img(src="images/qualidade.png", alt="Ícone de smile")
-          figcaption.advantage-subtitle
-            h4.subtitle Qualidade de vida
-        p.advantage-description
-          | Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          | Sequi provident repellat veritatis aliquam suscipit doloribus delectus totam officia,
-          | iusto voluptas perspiciatis amet ut dolor!
-      .advantage
-        figure
-          img.advantage-img(src="images/descontracao.png", alt="Ícone de mão fazendo símbolo de Rock'n'Roll")
-          figcaption.advantage-subtitle
-            h4.subtitle Ambiente descontraído
-        p.advantage-description
-          | Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          | Sequi provident repellat veritatis aliquam suscipit doloribus delectus totam officia,
-          | iusto voluptas perspiciatis amet ut dolor!
-          | Magni quo rerum accusamus. Voluptas, fugiat.
-      .advantage
-        figure
-          img.advantage-img(src="images/atividades.png", alt="Ícone de paleta")
-          figcaption.advantage-subtitle
-            h4.subtitle Atividades extras
-        p.advantage-description
-          | Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          | Sequi provident repellat veritatis aliquam suscipit doloribus delectus totam officia,
-      a.advantages-link.highlight-link(href="#") Saiba mais
-    picture.ilustrative-pic
-      source(media="(max-width: 800px)" srcset="images/foto-bottom-sm.png")
-      img.ilustrative-pic-img(src="images/foto-bottom.png", alt="Feira de artesanato em um salão com faixa da Elo7")
-    section.jobs
-      h3.subtitle.jobs-subtitle Vagas em aberto
-      strong.topic-job.subtitle Desenvolvimento
-      ul.jobs-list
+        .advantage
+          figure
+            img.advantage-img(src="images/atividades.png", alt="Ícone de paleta")
+            figcaption.advantage-subtitle
+              h4.subtitle Atividades extras
+          p.advantage-description
+            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            | Sequi provident repellat veritatis aliquam suscipit doloribus delectus totam officia,
+        a.advantages-link.highlight-link(href="#") Saiba mais
+      picture.ilustrative-pic
+        source(media="(max-width: 800px)" srcset="images/foto-bottom-sm.png")
+        img.ilustrative-pic-img(src="images/foto-bottom.png", alt="Feira de artesanato em um salão com faixa da Elo7")
+      section.jobs
+        h3.subtitle.jobs-subtitle Vagas em aberto
+        strong.topic-job.subtitle Desenvolvimento
+        ul.jobs-list
+        span.err-msg.hidden Houve um erro ao exibir as vagas    

@@ -198,6 +198,18 @@ li {
   display: inline-block;
 }
 
+.jobs-list.loading::before {
+  $size: 12px;
+  content: "";
+  display: block;
+  width: $size;
+  height: $size;
+  border: 4px solid rgba(0,0,0,.2);
+  border-radius: 50%;
+  border-top-color: rgba(0,0,0,.4);
+  animation: spin .5s ease-in-out infinite
+}
+
 .job-item:not(:last-child) {  
   margin-bottom: 30px;
 }
@@ -212,4 +224,9 @@ li {
 
 .job-role {
   color: #359c9c;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

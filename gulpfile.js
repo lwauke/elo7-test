@@ -10,7 +10,7 @@ const {
 const pug = require('gulp-pug');
 const sass = require('gulp-sass');
 const minifyCss = require('gulp-csso');
-const uglify = require('gulp-uglify');
+const uglify = require('gulp-uglify-es').default;
 const babel = require('gulp-babel');
 const imagemin = require('gulp-imagemin');
 const webpack = require('webpack-stream');
@@ -53,13 +53,13 @@ function jsTranspile() {
     .pipe(babel({
       presets: ['@babel/env'],
       plugins: ['@babel/transform-runtime']
-    }).on('error', console.error))
+    }))
     .pipe(webpack({
       output: {
         filename: 'bundle.js'
       },
       mode: process.env.NODE_ENV
-    }).on('error', console.error));
+    }));
 }
 
 async function js() {  
