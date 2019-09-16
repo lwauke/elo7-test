@@ -28,11 +28,6 @@
     h('span.job-role', cargo),
     h('span.job-local', l ? maskLocal(l) : noLocalMsg)  
   );
-  
-  const jobsListToHTML = jobs => 
-    jobs
-      .map(jobObjToHTML)
-      .map(html => h('li.job-item', html));
 
   try {
     jobsList.classList.add('loading');
@@ -45,9 +40,13 @@
 
     const { vagas } = await req.json();
 
-    const activeJobs = vagas.filter(el => el.ativa);
+    const activeJobs = vagas
+      .filter(el => el.ativa)
+      .map(jobObjToHTML)
+      .map(html => h('li.job-item', html));
 
-    jobsList.append(...jobsListToHTML(activeJobs));
+    jobsList.append(...activeJobs);
+    
   } catch (err) {
     errMsg.classList.remove('hidden');
     console.error(err)
