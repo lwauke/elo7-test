@@ -2,8 +2,16 @@
 
 $max-width: 1100px; 
 
-h2, h3, p, h4, figure{
+h2, h3, p, h4, figure, ul {
   margin: 0;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
 }
 
 .intro,
@@ -16,7 +24,8 @@ h2, h3, p, h4, figure{
 .ceo-section,
 .team-members,
 .advantages-container,
-.ilustrative-pic {
+.ilustrative-pic,
+.jobs {
   max-width: $max-width;
   width: 90%;
   margin: 0 auto;
@@ -173,4 +182,34 @@ h2, h3, p, h4, figure{
 
 .ilustrative-pic-img {
   width: 100%;
+}
+
+.jobs {
+  padding-bottom: 65px;
+}
+
+.jobs-subtitle {
+  text-align: center;
+  margin: 55px auto 70px;
+}
+
+.topic-job {
+  margin-bottom: 60px;
+  display: inline-block;
+}
+
+.job-item:not(:last-child) {  
+  margin-bottom: 30px;
+}
+
+.job-link {
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 690px) {
+    flex-direction: column;
+  }
+}
+
+.job-role {
+  color: #359c9c;
 }
