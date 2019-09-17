@@ -29,9 +29,10 @@ $max-width: 1100px;
   height: 70vh; 
   max-height: 450px;
   position: relative;
-  background: no-repeat center/cover url('../images/foto-header.png');
-  @media (max-width: 800px) {
-    background-image: url('../images/foto-header-sm.png');
+  background: no-repeat center/cover url('../images/trabalhe-conosco/foto-header.jpg');
+  @media (max-width: 550px) {
+    height: 50vh;
+    background-image: url('../images/trabalhe-conosco/foto-header-sm.jpg');
   }  
 }
 

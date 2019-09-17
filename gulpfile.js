@@ -18,7 +18,7 @@ const webpack = require('webpack-stream');
 const htmlPath = 'src/*.pug';
 const cssPath = 'src/stylesheets/**/*.scss';
 const jsPath = 'src/javascripts/**/*.js';
-const imgPath = 'src/images/*';
+const imgPath = 'src/images/**/*';
 
 const path = require('path');
 const fse = require('fs-extra');

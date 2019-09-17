@@ -81,7 +81,7 @@ li {
     content: "»";
   }
   &:hover {
-    border-top:none;
+    border-top-color: transparent;
     background: $color;
     color: #fff;
     transform: scale(1.02);
