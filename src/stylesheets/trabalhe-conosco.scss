@@ -2,18 +2,6 @@
 
 $max-width: 1100px; 
 
-h2, h3, p, h4, figure, ul {
-  margin: 0;
-}
-
-ul {
-  padding: 0;
-}
-
-li {
-  list-style: none;
-}
-
 .intro,
 .team,
 .advantage-subtitle {
@@ -31,22 +19,29 @@ li {
   margin: 0 auto;
 }
 
+.ceo-section,
+.job-link {
+  display: flex;
+  justify-content: space-between;
+}
+
 .intro-bg {
-  height: 55vh;
+  height: 70vh; 
+  max-height: 450px;
+  position: relative;
   background: no-repeat center/cover url('../images/foto-header.png');
   @media (max-width: 800px) {
     background-image: url('../images/foto-header-sm.png');
-  }
-  position: relative;
+  }  
 }
 
 .title {
   position: absolute;
-  top: 62%;
+  top: 61.5%;
   left: 50%;
   transform: translateX(-50%);
   color: #fff;
-  font-size: 50px;
+  font-size: 44px;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
   @media (max-width: 520px) {
     top: 55%;
@@ -55,11 +50,12 @@ li {
 }
 
 .intro-content {  
-  padding: 33px 0 55px;
+  padding: 30px 0;
 }
 
 .intro-text {
-  margin-bottom: 30px;
+  margin-bottom: 24px;
+  line-height: 1.4em;
 }
 
 .about {
@@ -67,27 +63,31 @@ li {
   background: #f8f8f8;
 }
 
-.ceo-section {
-  display: flex;
-  justify-content: space-between;
-}
-
 .ceo-video {
   width: 46.5%;
 }
 
 .ceo-words {
-  width: 48%;
-}
-
-.ceo-highlight {
-  margin-top: 13px;
-  margin-bottom: 45px;
-  display: inline-block;
+  width: 47.6%;
 }
 
 .ceo-subtitle {
-  margin-bottom: 13px;
+  margin-bottom: 8px;
+  font-size: 17px;
+  letter-spacing: -0.5px;
+  margin-top: 2px;
+}
+
+.ceo-highlight {
+  margin-bottom: 35px;
+  display: inline-block;
+  font-size: 18px;
+  letter-spacing: -0.2px;
+}
+
+.ceo-content {
+  line-height: 1.45em;
+  text-align: justify;
 }
 
 @media (max-width: 850px) {
@@ -113,7 +113,8 @@ li {
 }
 
 .team-subtitle {
-  margin: 55px 0;
+  margin: 52px 0;
+  line-height: 1.2em;
 }
 
 .team-members {
@@ -138,8 +139,8 @@ li {
 .advantages-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 35px 4.65%;
-  padding: 60px 0 55px;
+  grid-gap: 26px 4.65%;
+  padding: 60px 0 32px;
 }
 
 .advantage figure{
@@ -154,11 +155,20 @@ li {
 }
 
 .advantage-subtitle {
-  height: 91px;
+  height: 85px;
+  .subtitle {
+    font-size: 16px;
+    letter-spacing: 0.3px;
+    transform: translateY(-5px);
+  }
 }
 
 .advantage-description {
   text-align: justify;
+  line-height: 1.48em;
+  &:first-child {
+    line-height: 1.4em;
+  }
 }
 
 .advantages-link {
@@ -190,12 +200,13 @@ li {
 
 .jobs-subtitle {
   text-align: center;
-  margin: 55px auto 70px;
+  margin: 50px auto 64px;
 }
 
 .topic-job {
-  margin-bottom: 60px;
+  margin-bottom: 53px;
   display: inline-block;
+  letter-spacing: 0.5px;
 }
 
 .jobs-list.loading::before {
@@ -211,22 +222,25 @@ li {
 }
 
 .job-item:not(:last-child) {  
-  margin-bottom: 30px;
+  margin-bottom: 21px;
 }
 
-.job-link {
-  display: flex;
-  justify-content: space-between;
-  @media (max-width: 690px) {
+@media (max-width: 690px) {
+  .job-link {
     flex-direction: column;
   }
 }
 
-.job-role {
-  color: #359c9c;
+.job-role,
+.job-local { 
+  font-size: 18px;
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.job-role {
+  color: #359c9c;
+  letter-spacing: 0.2px;
+}
+
+.job-local {  
+  letter-spacing: 0.3px;
 }

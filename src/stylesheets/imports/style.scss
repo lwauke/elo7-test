@@ -1,11 +1,52 @@
+@font-face {
+  font-family:'museo_sans';
+  src:url("https://images.elo7.com.br/assets/v3/fonts/museo-sans-300-webfont.eot");
+  src:url("https://images.elo7.com.br/assets/v3/fonts/museo-sans-300-webfont.eot?#iefix") format("embedded-opentype"),
+  url("https://images.elo7.com.br/assets/v3/fonts/museo-sans-300-webfont.woff2") format("woff2"),
+  url("https://images.elo7.com.br/assets/v3/fonts/museo-sans-300-webfont.woff") format("woff"),
+  url("https://images.elo7.com.br/assets/v3/fonts/museo-sans-300-webfont.ttf") format("truetype"),
+  url("https://images.elo7.com.br/assets/v3/fonts/museo-sans-300-webfont.svg#museo_sans300") format("svg");
+  font-weight:300;
+  font-style:normal;
+  font-display:swap
+ }
+
+ @font-face {
+  font-family:'museo_sans';
+  src:url("https://images.elo7.com.br/assets/v3/fonts/museo-sans-500-webfont.eot");
+  src:url("https://images.elo7.com.br/assets/v3/fonts/museo-sans-500-webfont.eot?#iefix") format("embedded-opentype"),
+  url("https://images.elo7.com.br/assets/v3/fonts/museo-sans-500-webfont.woff2") format("woff2"),
+  url("https://images.elo7.com.br/assets/v3/fonts/museo-sans-500-webfont.woff") format("woff"),
+  url("https://images.elo7.com.br/assets/v3/fonts/museo-sans-500-webfont.ttf") format("truetype"),
+  url("https://images.elo7.com.br/assets/v3/fonts/museo-sans-500-webfont.svg#museo_sans500") format("svg");
+  font-weight:500;
+  font-style:normal;
+  font-display:swap
+ }
+
 body {
   margin: 0;
   color: #7d7873;
+  font-family: "museo_sans";
+  font-weight: 300;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+
+h2, h3, p, h4, figure, ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
 }
 
 .hidden {
@@ -22,7 +63,7 @@ a {
 }
 
 .highlight-link {
-  padding-top: 23px;
+  padding: 20px 0;
   border-top: 2px solid #cbcbcb;
   width: 200px;
   text-align: center;
@@ -30,12 +71,18 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-size: 18px;
+  font-weight: bolder;
   &::after {
-    content: " >>";
-    font-size: 0.6em;
+    content: "»";
   }
 }
 
 .subtitle {
   color: #7d7873;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
