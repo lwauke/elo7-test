@@ -12,19 +12,18 @@
     cidade: c,
     pais: p
   }) => `${b} - ${c}, ${p}`;
-  
+
   const noLocalMsg = 'Remoto';
   
+  const linkObj = href => ({ href, target: '_blank'});
+
   const jobObjToHTML = ({
     cargo,
     link,
     localizacao: l
   }) => h(
     'a.job-link',
-    {
-      href: link,
-      target: '_blank'
-    },
+    linkObj(link),
     h('span.job-role', cargo),
     h('span.job-local', l ? maskLocal(l) : noLocalMsg)  
   );
@@ -46,7 +45,7 @@
       .map(html => h('li.job-item', html));
 
     jobsList.append(...activeJobs);
-    
+
   } catch (err) {
     errMsg.classList.remove('hidden');
     console.error(err)
