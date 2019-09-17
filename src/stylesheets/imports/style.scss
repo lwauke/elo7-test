@@ -9,7 +9,7 @@
   font-weight:300;
   font-style:normal;
   font-display:swap
- }
+}
 
  @font-face {
   font-family:'museo_sans';
@@ -22,7 +22,11 @@
   font-weight:500;
   font-style:normal;
   font-display:swap
- }
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -35,7 +39,6 @@ a {
   text-decoration: none;
   color: inherit;
 }
-
 
 h2, h3, p, h4, figure, ul {
   margin: 0;
@@ -63,11 +66,12 @@ li {
 }
 
 .highlight-link {
+  $color: #359c9c; 
   padding: 20px 0;
   border-top: 2px solid #cbcbcb;
   width: 200px;
   text-align: center;
-  color: #359c9c;
+  color: $color;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -75,6 +79,13 @@ li {
   font-weight: bolder;
   &::after {
     content: "»";
+  }
+  &:hover {
+    border-top:none;
+    background: $color;
+    color: #fff;
+    transform: scale(1.02);
+    transition: all .1s ease-in-out
   }
 }
 
