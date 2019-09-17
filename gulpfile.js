@@ -14,6 +14,7 @@ const uglify = require('gulp-uglify-es').default;
 const babel = require('gulp-babel');
 const imagemin = require('gulp-imagemin');
 const webpack = require('webpack-stream');
+const autoPrefixer = require('gulp-autoprefixer');
 
 const htmlPath = 'src/*.pug';
 const cssPath = 'src/stylesheets/**/*.scss';
@@ -44,7 +45,7 @@ function cssTranspile() {
 }
 
 async function css() {  
-  onProd(cssTranspile(), minifyCss)
+  onProd(cssTranspile(), autoPrefixer, minifyCss)
     .pipe(dest('dist/stylesheets'));  
 }
 
