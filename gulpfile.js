@@ -95,7 +95,7 @@ task('watch', () => {
   reload(
     watch(htmlPath, html),
     watch(cssPath, css),
-    watch(jsPath, js)      
+    watch(jsPath, js)
   );
 
   watch(imgPath, img)

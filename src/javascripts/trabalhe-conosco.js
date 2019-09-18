@@ -15,7 +15,7 @@
 
   const noLocalMsg = 'Remoto';
   
-  const linkObj = href => ({ href, target: '_blank'});
+  const linkParams = href => ({ href, target: '_blank'});
 
   const jobObjToHTML = ({
     cargo,
@@ -23,7 +23,7 @@
     localizacao: l
   }) => h(
     'a.job-link',
-    linkObj(link),
+    linkParams(link),
     h('span.job-role', cargo),
     h('span.job-local', l ? maskLocal(l) : noLocalMsg)  
   );
