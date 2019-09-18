@@ -52,7 +52,7 @@ async function css() {
 function jsTranspile() {
   return src(jsPath)
     .pipe(babel({
-      presets: ['@babel/env'],
+      presets: ['@babel/preset-env'],
       plugins: ['@babel/transform-runtime']
     }))
     .pipe(webpack({
@@ -82,6 +82,9 @@ async function clean() {
   }  
 }
 
+const reload = (...watchers) =>
+  watchers.map(w => w.on('change', browserSync.reload));
+
 task('watch', () => {
   browserSync.init({
     server: {
@@ -89,9 +92,12 @@ task('watch', () => {
     }
   })
 
-  watch(htmlPath, html).on('change', browserSync.reload);
-  watch(cssPath, css).on('change', browserSync.reload);
-  watch(jsPath, js).on('change', browserSync.reload);
+  reload(
+    watch(htmlPath, html),
+    watch(cssPath, css),
+    watch(jsPath, js)      
+  );
+
   watch(imgPath, img)
 });
 
